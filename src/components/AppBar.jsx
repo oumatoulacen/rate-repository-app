@@ -1,29 +1,35 @@
-import { View, StyleSheet, Pressable } from 'react-native';
-import Text from './Text';
+import { View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import theme from '../theme';
+import AppBarTab from './AppBarTab';
+import { ScrollView } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
 		paddingTop: Constants.statusBarHeight,
 		paddingBottom: Constants.statusBarHeight / 2,
-		paddingLeft: Constants.statusBarHeight,
 		backgroundColor: theme.colors.textPrimary,
+	},
+	contentContainer: {
+		paddingHorizontal: Constants.statusBarHeight / 2,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		flexGrow: 1,
 	},
 });
 
 const AppBar = () => {
 	return (
 		<View style={styles.container}>
-			<Pressable>
-				<Text
-					style={{ color: 'white' }}
-					subheading="subheading"
-					fontWeight="bold"
-				>
-					Repositories
-				</Text>
-			</Pressable>
+			<ScrollView
+				horizontal
+				contentContainerStyle={styles.contentContainer}
+				showsHorizontalScrollIndicator={false}
+			>
+				<AppBarTab to="/" text="Repositories" />
+				<AppBarTab to="/signin" text="Sign in" />
+			</ScrollView>
 		</View>
 	);
 };

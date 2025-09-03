@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 	image: {
 		width: 50,
 		height: 50,
-		borderRadius: 25,
+		borderRadius: 10,
 		marginRight: 16,
 		alignSelf: 'flex-start',
 	},
